@@ -64,3 +64,12 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem 'rails_admin', '~> 3.3'
+gem 'devise'
+gem "devise-i18n"
+gem 'devise-bootstrap-views'
+
+gem 'devise-i18n'
+gem 'rails-i18n'
+gem 'rails_admin-i18n'

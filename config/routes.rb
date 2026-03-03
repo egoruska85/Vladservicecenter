@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  mount RailsAdmin::Engine => '/rails_admin', as: 'rails_admin'
   get "home/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
