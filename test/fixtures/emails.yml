@@ -2,8 +2,8 @@
 
 one:
   email: MyString
-  phone: one
+  organization: one
 
 two:
   email: MyString
-  phone: two
+  organization: two

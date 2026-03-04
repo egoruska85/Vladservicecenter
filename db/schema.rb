@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_03_04_100955) do
+ActiveRecord::Schema[8.0].define(version: 2026_03_04_101841) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -41,10 +41,10 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_04_100955) do
 
   create_table "emails", force: :cascade do |t|
     t.string "email"
-    t.integer "phone_id", null: false
+    t.integer "organization_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["phone_id"], name: "index_emails_on_phone_id"
+    t.index ["organization_id"], name: "index_emails_on_organization_id"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -91,6 +91,6 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_04_100955) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "emails", "phones"
+  add_foreign_key "emails", "organizations"
   add_foreign_key "phones", "organizations"
 end
