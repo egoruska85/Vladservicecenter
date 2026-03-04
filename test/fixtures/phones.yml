@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  phone: MyString
+  max: false
+  telegram: false
+  vk: false
+  organization: one
+
+two:
+  phone: MyString
+  max: false
+  telegram: false
+  vk: false
+  organization: two
