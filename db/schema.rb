@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_03_03_222555) do
+ActiveRecord::Schema[8.0].define(version: 2026_03_04_061900) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -39,6 +39,40 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_03_222555) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "emails", force: :cascade do |t|
+    t.string "phone"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "organizations", force: :cascade do |t|
+    t.string "name"
+    t.text "about"
+    t.string "slogan"
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "phones", force: :cascade do |t|
+    t.string "phone"
+    t.boolean "max"
+    t.boolean "telegram"
+    t.boolean "vk"
+    t.integer "organization_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_phones_on_organization_id"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string "title"
+    t.text "desc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -56,4 +90,5 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_03_222555) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "phones", "organizations"
 end
