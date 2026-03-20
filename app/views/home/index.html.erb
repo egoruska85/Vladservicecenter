@@ -45,45 +45,33 @@
   <h1 class="display-5 mb-3">Ремонт бытовой техники</h1>
   <p class="lead mb-4">Выезд мастера в день обращения. Гарантия до 12 месяцев.</p>
   <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-3">
-    <a href="#" class="btn btn-light btn-lg">
+    <button type="button" class="btn btn-light btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Оставить заявку
-    </a>
-    <a href="#" class="btn btn-outline-light btn-lg">
+    </button>
+    <button type="button" class="btn btn-light btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal2">
       Консультация
-    </a>
+    </button>
   </div>
 </section>
+
+
+<!-- Button trigger modal -->
+<%= render "modals" %>
+
+
 
 <!-- SERVICES -->
 <section id="services" class="section">
   <div class="container text-center">
     <h2 class="mb-5">Наши услуги</h2>
     <div class="row g-4">
-
-      <div class="col-md-6 col-lg-3">
-        <div class="card p-4 shadow-sm h-100">
-          Ремонт стиральных машин
+      <% @services.each do |service| %>
+        <div class="col-md-6 col-lg-3">
+          <div class="card p-4 shadow-sm h-100">
+            <%= service.title.capitalize %>
+          </div>
         </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="card p-4 shadow-sm h-100">
-          Ремонт холодильников
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="card p-4 shadow-sm h-100">
-          Ремонт посудомоечных машин
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="card p-4 shadow-sm h-100">
-          Ремонт телевизоров
-        </div>
-      </div>
-
+      <% end %>
     </div>
   </div>
 </section>
@@ -122,22 +110,23 @@
   </div>
 </section>
 
+
 <!-- CONTACTS -->
 <section id="contacts" class="section">
   <div class="container text-center">
     <h2 class="mb-4">Контакты</h2>
-    <p>📞 +7 (___) ___-__-__</p>
-    <p>📍 Ваш город</p>
+
+    <p>📞 <%= phone_to @organization.phones.last.phone, class:"btn btn-light" %></p>
+    <p>📍 Ессентуки</p>
     <p>🕒 Ежедневно с 9:00 до 21:00</p>
   </div>
 </section>
 
 <footer class="bg-dark text-white text-center py-4">
-  © 2026 Сервисный центр. Все права защищены.
+  © <%= Time.now.year %> Профессиональный сервис бытовой техники. Все права защищены.
 </footer>
 
 <!-- Bootstrap JS -->
-
 
 </body>
 </html>
