@@ -36,9 +36,14 @@
         </li>
       </ul>
 
-      <a href="#" class="btn btn-primary">
+      <a href="#" class="btn btn-success">
         Вызвать мастера
       </a>
+      <% if user_signed_in? && current_user.admin == true %>
+        <%= link_to backoffices_path, class:"btn btn-primary" do %>
+          Админка
+        <% end %>
+      <% end %>
     </div>
 
   </div>
