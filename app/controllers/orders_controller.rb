@@ -14,6 +14,24 @@ class OrdersController < ApplicationController
     end
   end
 
+  def show
+    @order = Order.find(params[:id])
+    @images = @order.images
+  end
+
+  def update
+    @order = Order.find(params[:id])
+    @order.update(order_params)
+    redirect_back fallback_location: backoffice_path(@order)
+  end
+
+  def toggle_active
+    @order = Order.find(params[:id])
+    @order.update(active: !@order.active)
+
+    redirect_back fallback_location: backoffice_path(@order)
+  end
+
   private
 
   def order_params

@@ -12,7 +12,12 @@ Rails.application.routes.draw do
   resources :services
   resources :abouts
   resources :orders
-  resources :backoffices
+  resources :backoffices do
+    member do
+      patch :toggle_active
+      patch :toggle_completed
+    end
+  end
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
