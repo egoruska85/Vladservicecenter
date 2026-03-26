@@ -1,9 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
   <div class="container">
-    <%= link_to root_path, class:"navbar-brand fw-bold text-primary" do %>
-      <%= image_tag(@logo_organization, style:"width: 5rem;") %><%= @organization.name %>
+    <% if @logo_organization.present? %>
+      <%= link_to root_path, class:"navbar-brand fw-bold text-primary" do %>
+        <%= image_tag(@logo_organization, style:"width: 5rem;") %><%= @organization.name %>
+      <% end %>
     <% end %>
-
 
     <!-- Кнопка бургера -->
     <button class="navbar-toggler"
