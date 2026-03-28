@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
 
     @logo_organization = @organization.logo
     @name_organization = @organization.name
+    @entries = Enter.all
   end
 
   def set_locale
