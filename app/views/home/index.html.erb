@@ -15,7 +15,14 @@
     }
 
     .hero {
-      background: linear-gradient(135deg, #2563eb, #1e40af);
+      background-image:
+      linear-gradient(
+          to right,
+          rgba(0, 0, 255, 0.4) 0%,
+          rgba(0, 0, 255, 1) 50%,
+          rgba(0, 0, 255, 0.4) 100%
+          ),
+        url('/images/cond.png');
       color: white;
       padding: 100px 20px;
       text-align: center;
@@ -44,14 +51,14 @@
 
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" style="background-repeat: no-repeat; background-size: cover;  background-position: center;">
   <h1 class="display-5 mb-3">Ремонт бытовой техники</h1>
   <p class="lead mb-4">Выезд мастера в день обращения. Гарантия до 12 месяцев.</p>
   <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-3">
-    <button type="button" class="btn btn-light btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button type="button" class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Оставить заявку
     </button>
-    <button type="button" class="btn btn-light btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+    <button type="button" class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal2">
       Консультация
     </button>
   </div>
