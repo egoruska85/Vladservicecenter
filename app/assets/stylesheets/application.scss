@@ -1,1 +1,18 @@
 @import "bootstrap";
+
+.parallax {
+  /* Фоновая картинка */
+  background-image: url("/images/service1.png");
+
+  /* Высота блока */
+  height: 50vh;
+
+  /* Эффект параллакса */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* Центрирование текста */
+
+}

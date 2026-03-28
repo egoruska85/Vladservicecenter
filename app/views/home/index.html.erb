@@ -18,11 +18,11 @@
       background-image:
       linear-gradient(
           to right,
-          rgba(0, 0, 255, 0.4) 0%,
-          rgba(0, 0, 255, 1) 50%,
-          rgba(0, 0, 255, 0.4) 100%
+          rgba(0, 0, 255, 0.3) 0%,
+          rgba(0, 0, 255, 0.9) 50%,
+          rgba(0, 0, 255, 0.3) 100%
           ),
-        url('/images/cond.png');
+        url('/images/cond1.png');
       color: white;
       padding: 100px 20px;
       text-align: center;
@@ -55,10 +55,10 @@
   <h1 class="display-5 mb-3">Ремонт бытовой техники</h1>
   <p class="lead mb-4">Выезд мастера в день обращения. Гарантия до 12 месяцев.</p>
   <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-3">
-    <button type="button" class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button type="button" class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Оставить заявку
     </button>
-    <button type="button" class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+    <button type="button" class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal2">
       Консультация
     </button>
   </div>
@@ -72,54 +72,49 @@
 
 <!-- SERVICES -->
 <section id="services" class="section">
-  <div class="container text-center">
-    <br><br>
-    <h2 class="mb-5">Наши услуги</h2>
-    <div class="row g-4">
-      <% @services.each do |service| %>
-        <div class="col-md-6 col-lg-3">
-          <div class="card p-4 shadow-sm h-100">
-            <%= service.title.capitalize %>
+
+  <div class="container-fluid text-center parallax">
+    <center>
+      <div class="row g-4">
+        <center>
+          <div class="col-md-6 col-lg-3">
+            <div class="card p-4 shadow-sm h-100">
+              <h2 class="mb-5">Наши услуги</h2>
+            </div>
           </div>
-        </div>
-      <% end %>
+        </center>
+      </div>
+    </center>
+    <div class="container">
+      <div class="row g-4">
+        <% @services.each do |service| %>
+          <div class="col-md-6 col-lg-3">
+            <div class="card p-4 shadow-sm h-100">
+              <%= service.title.capitalize %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ADVANTAGES -->
+
 <section id="abouts" class="section bg-light">
-  <div class="container text-center">
+  <div class="container text-center shadow-lg p-3 mb-5 bg-body-tertiary rounded">
     <br><br>
     <h2>О нас</h2>
     <%= simple_format @organization.about, style:"font-size: 15px;" %>
     <h4 class="mb-5">Почему выбирают нас</h4>
     <div class="row g-4">
-
-      <div class="col-md-6 col-lg-3">
-        <div class="card p-4 shadow-sm h-100">
-          Гарантия до 12 месяцев
+      <% @entries.each do |enter| %>
+        <div class="col-md-6 col-lg-3">
+          <div class="card p-4 shadow-sm h-100">
+            <%= enter.title %>
+          </div>
         </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="card p-4 shadow-sm h-100">
-          Бесплатная диагностика
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="card p-4 shadow-sm h-100">
-          Оригинальные запчасти
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="card p-4 shadow-sm h-100">
-          Работаем без выходных
-        </div>
-      </div>
-
+      <% end %>
     </div>
   </div>
 </section>
