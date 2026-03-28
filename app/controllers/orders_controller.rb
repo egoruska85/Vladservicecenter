@@ -11,6 +11,8 @@ class OrdersController < ApplicationController
     end
     if @order.save
       redirect_to root_path, notice: "Заявка принята, с вами свяжутся ближайшее время"
+    else
+      redirect_to root_path, notice:
     end
   end
 
