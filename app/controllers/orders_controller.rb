@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
     if @order.save
       redirect_to root_path, notice: "Заявка принята, с вами свяжутся ближайшее время"
     else
-      render :new, status: :unprocessable_entity
+      redirect_to root_path, alert: "Оформите заявку правильно"
     end
   end
 
