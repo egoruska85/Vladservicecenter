@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_03_28_102030) do
+ActiveRecord::Schema[8.0].define(version: 2026_03_29_110640) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -63,6 +63,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_28_102030) do
     t.boolean "completed"
     t.boolean "accepted"
     t.text "answer"
+    t.integer "user_id"
     t.index ["service_id"], name: "index_orders_on_service_id"
   end
 
