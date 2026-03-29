@@ -32,4 +32,4 @@ production:
   host: localhost
   port: 5432
   timeout: 5000
-  database: womendress_mb
+  database: rbm_base
