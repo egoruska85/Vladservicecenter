@@ -1,4 +1,8 @@
 class OrdersController < ApplicationController
+  def index
+
+  end
+
   def new
 
   end
@@ -8,11 +12,12 @@ class OrdersController < ApplicationController
     if user_signed_in?
       @order.name = current_user.username
       @order.phone = current_user.phone
+      @order.user_id = current_user.id
     end
     if @order.save
       redirect_to root_path, notice: "Заявка принята, с вами свяжутся ближайшее время"
     else
-      redirect_to root_path, notice:
+      redirect_to root_path, alert: "Оформите заявку правильно"
     end
   end
 

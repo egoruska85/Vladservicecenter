@@ -8,29 +8,32 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-
-          <%= form_for :order, url: orders_path do |f| %>
-            <h6>Выберите услугу</h6>
-            <%= f.select :service_id, Service.all.map { |s| [s.name_title, s.id] }, {}, { class:"form-control", style:"max-width: 400px;" } %>
-            <br>
-            <% unless user_signed_in? %>
-              <h6>Как к Вам обращаться?</h6>
-              <%= f.text_field :name, class:"form-control", style:"max-width: 400px;" %>
-            <% end %>
-            <br>
-            <h6>Опишите вашу проблему в технике</h6>
-              <%= f.text_area :desc, class:"form-control", style:"max-width: 400px;", rows:"8" %>
-            <br>
-              <%= f.label "Фото с техники" %>
-              <%= f.file_field :images, multiple: true, class:"btn" %>
-            <br>
-            <% unless user_signed_in? %>
-              <h6>Номер телефона для связи с Вами.</h6>
-              <%= f.text_field :phone, class:"form-control", style:"max-width: 400px;" %>
-            <% end %>
-            <br>
-            <%= f.submit 'Записаться', class:"btn btn-success" %>
+          <% if flash[:alert] %>
+            <div class="alert alert-danger"><%= flash[:alert] %></div>
           <% end %>
+
+            <%= form_for :order, url: orders_path do |f| %>
+              <h6>Выберите услугу</h6>
+              <%= f.select :service_id, Service.all.map { |s| [s.name_title, s.id] }, {}, { class:"form-control", style:"max-width: 400px;" } %>
+              <br>
+              <% unless user_signed_in? %>
+                <h6>Как к Вам обращаться?</h6>
+                <%= f.text_field :name, class:"form-control", style:"max-width: 400px;" %>
+              <% end %>
+              <br>
+              <h6>Опишите вашу проблему в технике</h6>
+                <%= f.text_area :desc, class:"form-control", style:"max-width: 400px;", rows:"8" %>
+              <br>
+                <%= f.label "Фото с техники" %>
+                <%= f.file_field :images, multiple: true, class:"btn" %>
+              <br>
+              <% unless user_signed_in? %>
+                <h6>Номер телефона для связи с Вами.</h6>
+                <%= f.text_field :phone, class:"form-control", style:"max-width: 400px;", value:"+7" %>
+              <% end %>
+              <br>
+              <%= f.submit 'Записаться', class:"btn btn-success" %>
+            <% end %>
 
         </div>
       </div>

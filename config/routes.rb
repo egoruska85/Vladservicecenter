@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :services
   resources :abouts
-  resources :orders
+  resources :orders 
   resources :backoffices do
     member do
       patch :toggle_active
