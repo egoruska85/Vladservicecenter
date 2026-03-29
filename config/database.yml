@@ -28,14 +28,14 @@ production:
   primary:
     adapter: postgresql
     encoding: unicode
-    username: postges
+    username: postgres
     password: P@$$w0RD
     host: localhost
     database: rbm_base
   cache:
     adapter: postgresql
     encoding: unicode
-    username: postges
+    username: postgres
     password: P@$$w0RD
     host: localhost
     database: rbm_base_cache
@@ -43,7 +43,7 @@ production:
   queue:
     adapter: postgresql
     encoding: unicode
-    username: postges
+    username: postgres
     password: P@$$w0RD
     host: localhost
     database: rbm_base_queue
@@ -51,7 +51,7 @@ production:
   cable:
     adapter: postgresql
     encoding: unicode
-    username: postges
+    username: postgres
     password: P@$$w0RD
     host: localhost
     database: rbm_base_cable
